@@ -1,0 +1,14 @@
+- name: Deploy Scientific Calculator
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Pull the latest Docker image from Docker Hub
+      command: docker pull gnanendhar8/scientific-calculator
+
+    - name: Stop any running container
+      command: docker rm -f scientific-calculator-container
+      ignore_errors: yes
+
+    - name: Run the Docker container
+      command: >
+        docker run -d --name scientific-calculator-container gnanendhar8/scientific-calculator
