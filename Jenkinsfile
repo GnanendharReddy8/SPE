@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/GnanendharReddy8/SPE.git'
+                git branch: 'main', url: 'https://github.com/GnanendharReddy8/SPE.git'
             }
         }
 
