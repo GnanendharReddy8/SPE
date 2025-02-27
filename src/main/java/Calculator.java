@@ -4,14 +4,14 @@ public class Calculator {
 
     public double sqrt(double x) {
         if (x < 0) {
-            throw new IllegalArgumentException("Square root of a negative number is not defined");
+            throw new IllegalArgumentException("Square root of a negative number is not defined.");
         }
         return Math.sqrt(x);
     }
 
     public long factorial(int x) {
         if (x < 0) {
-            throw new IllegalArgumentException("Factorial of a negative number is not defined");
+            throw new IllegalArgumentException("Factorial of a negative number is not defined.");
         }
         long result = 1;
         for (int i = 2; i <= x; i++) {
@@ -22,7 +22,7 @@ public class Calculator {
 
     public double ln(double x) {
         if (x <= 0) {
-            throw new IllegalArgumentException("Natural logarithm is only defined for positive numbers");
+            throw new IllegalArgumentException("Natural logarithm is only defined for positive numbers.");
         }
         return Math.log(x);
     }
