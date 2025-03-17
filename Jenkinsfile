@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                sh 'ls -l target/'  // Check if JAR exists
+                sh 'ls -l target/'
                 sh 'docker build -t gnanendhar8/scientific-calculator .'
                 sh 'docker push gnanendhar8/scientific-calculator'
             }
