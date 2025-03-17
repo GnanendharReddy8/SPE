@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy with Ansible') {
             steps {
-                sh 'sudo ansible-playbook deploy.yml'
+                sh 'echo $DOCKER_PASS | sudo -S ansible-playbook deploy.yml'
             }
         }
     }
