@@ -18,8 +18,8 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                sh 'sudo docker build -t gnanendhar8/scientific-calculator .'
-                sh 'sudo docker push gnanendhar8/scientific-calculator'
+                sh 'docker build -t gnanendhar8/scientific-calculator .'
+                sh 'docker push gnanendhar8/scientific-calculator'
             }
         }
         stage('Deploy with Ansible') {
