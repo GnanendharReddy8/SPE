@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn compile'
+                sh 'mvn clean package'
             }
         }
         stage('Test') {
@@ -18,6 +18,7 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
+                sh 'ls -l target/'  // Check if JAR exists
                 sh 'docker build -t gnanendhar8/scientific-calculator .'
                 sh 'docker push gnanendhar8/scientific-calculator'
             }
