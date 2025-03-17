@@ -18,8 +18,13 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                sh 'ls -l target/'
+                sh 'ls -l target/'  // Verify JAR file exists
                 sh 'docker build -t gnanendhar8/scientific-calculator .'
+
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS'
+                }
+
                 sh 'docker push gnanendhar8/scientific-calculator'
             }
         }
